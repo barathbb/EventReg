@@ -50,6 +50,7 @@ public class ShowEventAction extends Action {
 			e.setEvent_Type(rs.getString("Event_Type"));
 			e.setEvent_Owner(rs.getInt("Event_Owner"));
 			e.setAvailable(Utils.isAvailable(eb.getEventid(), conn));
+			e.setRegistration_Limit(rs.getInt("Registration_Limit"));
 			e.setStatus(rs.getString("Status"));
 		}
 
@@ -85,6 +86,8 @@ public class ShowEventAction extends Action {
 		if(((User)session.getAttribute("User")).getAccount_Type().equals("U"))
 			forward_string="success";
 		
+		
+		request.setAttribute("Available Entries", new Integer(Utils.getAvailableEntries(eb.getEventid(), conn)));
 		
 		return mapping.findForward(forward_string);
 	}

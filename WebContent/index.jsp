@@ -24,7 +24,7 @@ function clearurl()
 	m = document.URL.lastIndexOf("/",o);
 	document.URL = document.URL.substring(0, m);
 }
-
+/*
 function verifysignin()
 {
 	var aj = new XMLHttpRequest();
@@ -40,7 +40,7 @@ function verifysignin()
 				document.getElementById("check_message").innerHTML = aj.responseText;
 				if(aj.responseText.length == 13)
 				{
-					window.location.href="home.jsp#tab1";
+					window.location.href="home.do#tab1";
 				}; 
 			}
 	}
@@ -51,7 +51,7 @@ function gotosignup(type)
 {
 	window.location.href="signup.jsp?Account_Type="+new String(type);
 }
-	
+	*/
 </script>
 
 </head>

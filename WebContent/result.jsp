@@ -7,6 +7,11 @@ if(request.getAttribute("Registered") != null && (Boolean)request.getAttribute("
 	if((Boolean)request.getAttribute("Registered") == true)
 		out.write("Registered");   //If this response is changed, update length in regunreg.js --> registerforevent()
 
+		
+if(request.getAttribute("RegFailure")!= null && (Boolean)request.getAttribute("RegFailure") == true )
+	out.write("Registration Failure.Not enough vacancites");
+		
+		
 if(request.getAttribute("Unregistered") != null  && (Boolean)request.getAttribute("Unregistered") == true)
 	if((Boolean)request.getAttribute("Unregistered") == true)
 		out.write("Unregistered");  //If this response is changed, update length in regunreg.js --> unregisterforevent()

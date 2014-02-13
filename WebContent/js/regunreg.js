@@ -13,14 +13,19 @@ function registerforevent(eventID,button)
 				{
 				//alert(a.responseText + a.responseText.length); 
 				//if(a.responseText.length == 14)   //Size depends on responseText. Update size if there's a change in responseText
-				if(a.responseText.length > 2)
+				if(a.responseText > 40)
 					{
 					//alert(button.innerHTML);
+					alert(a.responseText);
+					}
+				else
+					{
 					button.innerHTML = "Unregister";
 					button.setAttribute("class","Unregister");
 					button.setAttribute("onclick","unregisterforevent("+eventID+",this)");
 					updateREL(eventID,"R");
 					}
+					
 				}
 		} 
 		a.send(null);

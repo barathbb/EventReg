@@ -22,6 +22,33 @@ public class Utils {
 		return status;
 	}
 	
+	public static Integer getAvailableEntries(Integer EventId,Connection conn) throws Exception
+	{	
+		PreparedStatement pt1 = conn.prepareStatement("select Registration_Limit from Events where EventId = ?");
+		pt1.setInt(1, EventId);
+		ResultSet rs = pt1.executeQuery();
+		
+		int limit=0; 
+		
+		while(rs.next())
+			limit = rs.getInt("Registration_Limit");
+		
+		if(limit == -1)
+			return Integer.MAX_VALUE;
+		
+		pt1 = conn.prepareStatement("select count(UserId) from EventReg where EventId = ?");
+		pt1.setInt(1, EventId);
+		rs = pt1.executeQuery();
+		
+		int reged=0;
+		
+		while(rs.next())
+			reged = rs.getInt(1);
+	
+		return new Integer(limit - reged);
+	}
+	
+	
 	public static String getAllLocations(Connection conn) throws Exception
 	{
 		PreparedStatement pt1 = conn.prepareStatement("select * from LocationList");

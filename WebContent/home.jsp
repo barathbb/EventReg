@@ -28,7 +28,7 @@ if(request.getSession().getAttribute("User") == null)
 
 function signout()
 {
-	window.location.href="signout.jsp"; 
+	window.location.href="signout.do"; 
 }
 
 function fetchallevents()
@@ -131,7 +131,7 @@ function fetchmyevents()
 				if(ajax.readyState == 4)
 					{
 					alert("The event has been deleted");
-					window.location.href = "home.jsp#tab3";
+					window.location.href = "home.do#tab3";
 					}
 			}
 			ajax.send(null);

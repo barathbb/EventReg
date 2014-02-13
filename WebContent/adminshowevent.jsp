@@ -145,6 +145,27 @@ conducted by &nbsp;
 </td>
 </tr>
 
+
+<% if(request.getAttribute("Available Entries") != null && event.getRegistration_Limit() != -1 && event.getAvailable()) 
+{
+
+%>
+
+<tr colspan="2">
+<td> Registration Limit :  <%=event.getRegistration_Limit() %>
+</td>
+</tr>
+
+
+<tr colspan="2">
+<td> Available Entries :  <%=request.getAttribute("Available Entries")%>
+</td>
+</tr>
+
+<% } %>
+
+
+
 <tr><td><br/></td></tr>  
 
 <tr>

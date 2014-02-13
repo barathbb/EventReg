@@ -37,9 +37,17 @@ public class RegunregAction extends Action {
 		
 		if(ru.getReg() == true)
 		{
+			if(Utils.getAvailableEntries(ru.getEventid(), conn) > 0 ) 
+			{
 			pt1 = conn.prepareStatement("insert into EventReg values (?,?)");
 			pt1.setInt(1, ru.getEventid());
 			pt1.setInt(2, ((User)session.getAttribute("User")).getUserId());
+			}
+			else
+			{
+				request.setAttribute("RegFailure", new Boolean(true));
+				return mapping.findForward("not done");
+			}
 		}
 		
 		if(ru.getUnreg() == true)
