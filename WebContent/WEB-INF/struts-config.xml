@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+    	<form-bean name="event" type="MyPackage.Event"/>
+    	<form-bean name="inputFormBean" type="bean.InputFormBean"/>
+    	<form-bean name="signinBean" type="bean.SigninBean" />
+    	<form-bean name="signupBean" type="bean.SignupBean"/>
+    	<form-bean name="regunregBean" type="bean.RegunregBean" />
+    	<form-bean name="fetchEventsBean" type="bean.FetchEventsBean"/>
+    	<form-bean name="eventBean" type="bean.EventBean"/>
+    	<form-bean name="editEventBean" type="bean.EditEventBean" />
+    	<form-bean name="fullEditEventBean" type="bean.FullEditEventBean" />
+    	<form-bean name="removeEntryBean" type="bean.RemoveEntryBean" />
+    	<form-bean name="createEventBean" type="bean.CreateEventBean" />
+    	<form-bean name="userBean" type="bean.UserBean" />
+    	<form-bean name="editUserBean" type="bean.EditUserBean" />	
+    	<form-bean name="saveScoreBean" type="bean.SaveScoreBean" />
+    	<form-bean name="changeStatusBean" type="bean.ChangeStatusBean" />     <!--  For Admin only -->
+    </form-beans>
+    
+    <global-forwards>
+ 		 <forward name="signup" path="/signup.jsp"/>
+  		 <forward name="logon" path="/logon.jsp"/>
+         <forward name="success" path="/mainMenu.jsp"/>
+	</global-forwards>
+    
+    <action-mappings>
+    	<action path='/home' type="action.SigninAction" name="signinBean">
+        	<forward name="home" path="/home.jsp"></forward>
+        	<forward name="adminhome" path="/adminhome.jsp"></forward>
+        	<forward name="index" path="/index.jsp"></forward>
+        </action>
+        
+        <action path="/show" type="action.InputFormAction" name="inputFormBean">
+        	<forward name="print" path="/success.jsp" />
+        </action>
+        
+        <action path="/signup" type="action.SignupAction" name="signupBean">
+        	<forward name="done" path="/bigresult.jsp" />
+        	<!-- <forward name="wrong" path="/home.jsp" />  -->
+        </action>
+        
+        <action path="/register" type="action.RegunregAction" name="regunregBean">
+        	<forward name="done" path="/result.jsp"></forward>
+        	<forward name="not done" path="/result.jsp"></forward>
+        </action>
+        
+        <action path="/unregister" type="action.RegunregAction" name="regunregBean">
+        	<forward name="done" path="/result.jsp"></forward>
+        	<forward name="not done" path="/result.jsp"></forward>
+        </action>
+        
+        <action path="/fetchevents" type="action.FetchEventsAction" name="fetchEventsBean">	
+        	<forward name="displayevents" path="/displayevents.jsp"></forward>
+        	<forward name="admindisplayevents" path="/admindisplayevents.jsp"></forward>
+        	<forward name="not done" path="/result.jsp"></forward>
+        </action>
+       
+        <action path="/signout" type="action.SignoutAction" >
+        	<forward name="index" path="/index.jsp"></forward>
+        </action>
+        
+        <action path="/finaliseeventrequest" type="action.CreateEventAction" name="createEventBean">
+        	<forward name="success" path="/bigresult.jsp"></forward>
+        	<forward name="datefailure" path="/requestevent.jsp"></forward>
+        </action>
+        
+        <action path="/showevent" type="action.ShowEventAction" name="eventBean">
+        	<forward name="success" path="/showevent.jsp"></forward>
+        	<forward name="adminsuccess" path="/adminshowevent.jsp"></forward>
+        </action>
+        
+        <action path="/editevent" type="action.ShowEditEventAction" name="eventBean">
+        	<forward name="Asuccess" path="/editevent.jsp"></forward>
+        	<forward name="Psuccess" path="/fulleditevent.jsp"></forward>
+        	<forward name="Rsuccess" path="/fulleditevent.jsp"></forward>
+        	<forward name="adminsuccess" path="/fulleditevent.jsp"></forward>
+        </action>
+        
+        <action path="/finaliseeditevent" type="action.EditEventAction" name="editEventBean">
+        	<forward name="success" path="/showevent.do"></forward>
+        </action>
+        
+        <action path="/finalisefulleditevent" type="action.FullEditEventAction" name="fullEditEventBean">
+        	<forward name="Asuccess" path="/showevent.do"></forward>
+        	<forward name="Osuccess" path="/bigresult.jsp"></forward>
+        	<forward name="adminsuccess" path="/showevent.do"></forward>
+        	<forward name="datefailure" path="fulleditevent.do"></forward>
+        </action>
+        
+        <action path="/report" type="action.ShowReportAction" name="eventBean">
+        	<forward name="success" path="/report.jsp"></forward>
+        </action>
+        
+        <action path="/removeentry" type="action.RemoveEntryAction" name="removeEntryBean">
+        	<forward name="done" path="/result.jsp"></forward>
+        </action>
+        
+        <action path="/showuser" type="action.ShowUserAction" name="userBean">
+        	<forward name="success" path="/showuser.jsp"></forward>
+        	<forward name="adminsuccess" path="/adminshowuser.jsp"></forward>
+        </action>
+        
+        <action path="/editprofile" type="action.EditUserAction" name="editUserBean">
+        	<forward name="success" path="/result.jsp"></forward>
+        </action>
+        
+        <action path="/editprofile" type="action.EditUserAction" name="editUserBean">
+        	<forward name="success" path="/result.jsp"></forward>
+        	<forward name="failure" path="/result.jsp"></forward>
+        	
+        </action>
+        
+        <action path="/deleteaccount" type="action.DeleteAccountAction" name="userBean">
+        	<forward name="success" path="/index.jsp"></forward>
+        	<forward name="adminsuccess" path="/adminhome.jsp#tab1"></forward>
+        </action>
+        
+        <action path="/deleteevent" type="action.DeleteEventAction" name="eventBean">
+        	<forward name="success" path="/home.do#tab3"></forward>
+        	<forward name="adminsuccess" path="/adminhome.do#tab2"></forward>
+        </action>
+        
+        <action path="/savescore" type="action.SaveScoreAction" name="saveScoreBean">
+        	<forward name="success" path="/result.jsp"></forward>
+        	<forward name="failure" path="/result.jsp"></forward>
+        </action>
+        
+        <action path="/fulleditevent" type="action.FullEditShowEventAction" name="eventBean">
+        	<forward name="Asuccess" path="/editevent.jsp"></forward>
+        	<forward name="Psuccess" path="/fulleditevent.jsp"></forward>
+        	<forward name="Rsuccess" path="/fulleditevent.jsp"></forward>
+        	<forward name="adminsuccess" path="/fulleditevent.jsp"></forward>
+        </action>
+        
+       
+        <action path="/changestatus" type="action.ChangeStatusAction" name="changeStatusBean"> <!--  For Admin only -->
+        	<forward name="success" path="/result.jsp"></forward>
+        </action>
+        
+         <action path="/fulleditprofile" type="action.FullEditShowUserAction" name="userBean"> <!-- For Admin only , to show the account to be edited-->
+        	<forward name="success" path="/admineditprofile.jsp"></forward>
+        </action>
+        
+        <action path="/fetchusers" type="action.FetchUsersAction" name="userBean"> <!-- For Admin only, to view all users -->
+        	<forward name="success" path="/displayusers.jsp"></forward>
+        </action>
+          
+     </action-mappings> 
+
+</struts-config>

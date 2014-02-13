@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+td
+{
+	padding:10px;
+}
+
+#Message_Row
+{
+	height:5px;
+}
+
+#Event_Type_Message
+{
+	color:#ccc;
+	font-style:italics;
+}

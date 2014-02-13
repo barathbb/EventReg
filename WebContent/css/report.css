@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+.tname, .temail, .tcontact, .tscore
+{
+	width:150px;
+	text-align:center;
+	
+}
+.aevent
+{
+	width:100px;
+}

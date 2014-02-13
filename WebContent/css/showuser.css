@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+table
+{
+	width:600px;
+	margin:0 auto;
+}
+
+td
+{
+	padding-top:10px;
+	padding-bottom:10px;
+	
+}
+
+
+#participated th,td
+{
+	width:200px;
+}

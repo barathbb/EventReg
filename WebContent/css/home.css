@@ -1,0 +1,115 @@
+@CHARSET "UTF-8";
+
+body
+{
+	
+}
+
+
+div.items p:not(:target) {display: none}
+div.items p:target {display: block}
+
+a.tab ,a:hover.tab ,a:active.tab
+{
+ width:200px;
+ height:50px;
+ text-decoration:none;
+ border-style:solid;
+ border-top-color:blue;
+ border-left-color:blue;
+ border-right-color:blue;
+ border-bottom-color:white;
+ border-width:medium;
+ padding:10px;
+}
+
+a
+{
+	color:black;
+	text-decoration:none;
+}
+
+.eventname , .eventname:active , .eventname:hover , .eventname:link
+{
+	text-decoration:none;
+}
+
+.oneevent
+{
+	border-weight:lighter;
+	padding-top:2.5px;
+	padding-bottom:2.5px;	
+	height:100px;	
+	border-bottom-width:1px; 
+ 	border-bottom-style:solid; 
+}
+
+.eventdetails
+{
+	width:750px;
+	float:left;
+	height:auto;
+	margin:0 auto;
+/* 	border-bottom-width:1px; */
+/* 	border-bottom-style:solid; */
+}
+
+.eventcontrols
+{
+	width:230px;
+	float:right;
+	vertical-align:center;
+	padding-top:20px;
+	height:auto;
+	padding-right:10px;
+/* 	border-bottom-width:1px; */
+/* 	border-bottom-style:solid; */
+}
+
+.dates
+{
+	float:right;
+	padding-top:30px;
+	
+}
+
+.details
+{
+	float:left;
+}
+
+.dates
+{
+	float:right;
+}
+
+.Register, .reged_button
+{
+	
+	padding-right:10px;
+	float:right;
+	border-type:solid;
+}
+
+.reg_button
+{
+	border-width:1px;	
+	background-color:green;
+}
+
+.reged_buttom
+{
+	border-width:3px;
+	background-color:red;
+}
+
+
+.statuslist
+{
+	margin-left:60px;
+	margin-top:15px;
+	padding-top:2px;
+	padding-bottom:3px;
+	font-size:15px;
+}
+
