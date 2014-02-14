@@ -77,8 +77,6 @@ function deleteevent(eventid)
 
 <div id="all">
 
-<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a>  -->
-
 <h1>
 <%=event.getName() %>
 </h1>

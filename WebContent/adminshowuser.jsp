@@ -80,8 +80,6 @@ function deleteevent(eventid)
 
 <div id="all">
 
-<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
-
 <table id="maintable">
 
 <caption> <h2> <%=name %> </h2> </caption>
@@ -123,16 +121,16 @@ function deleteevent(eventid)
 
 <td colspan="2"> <!--  For participated events -->
 
-<table border="1" id="participated"> 
+<table id="participated"> 
 
 <% if(registeredevents.size() != 0)
 {
 		out.write("<caption> Events participated by "+ name +"</caption>");
 	%>
 
-<tr>
-<th> Name </th>
-</tr>
+<!-- <tr> -->
+<!-- <th> Name </th> -->
+<!-- </tr> -->
 
 <% } %>
 
@@ -144,9 +142,9 @@ if(registeredevents.size()!= 0)
 	{
 	%>
 
-<tr>
+<tr class="eventrow">
 
-<td>  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;" class="eventname">  <%=e.getName() %></a>
+<td class="l">  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;" class="eventname">  <%=e.getName() %></a>
 </td>
 
 <!--  
@@ -157,7 +155,6 @@ if(registeredevents.size()!= 0)
 	<button onclick="deleteevent(<%=e.getEventId()%>);" >  Delete event!</button>
 
 </td>
-
  -->
 </tr>
 
@@ -176,17 +173,17 @@ i++;
 
 <td colspan="2"> <!--  For created events -->
 
-<table border="1" id="created" >
+<table id="created" >
 
 <% if(createdevents.size() != 0)
 {
 		out.write("<caption> Events created by "+ name +"</caption>");
 	%>
 
-<tr>
-<th colspan="2"> Name </th>
-<!-- <th> Status </th> -->
-</tr>
+<!-- <tr> -->
+<!-- <th colspan="2"> Name </th> -->
+<!-- <th> Status </th> --> 
+<!-- </tr> -->
 
 <% } %>
 
@@ -198,9 +195,9 @@ if(createdevents.size()!= 0)
 	{
 	%>
 
-<tr>
+<tr class="eventrow">
 
-<td colspan="2">  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;" class="eventname">  <%=e.getName() %></a>
+<td colspan="2" class="l">  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;" class="eventname">  <%=e.getName() %></a>
 </td>
 
 <!-- 

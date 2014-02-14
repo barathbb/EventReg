@@ -13,12 +13,6 @@ if(request.getSession().getAttribute("User") == null)
       User thisUser = (User)session.getAttribute("User");
       Integer UserId = thisUser.getUserId();
       
-     // String name = (String)request.getAttribute("name");
-      //String emailid = (String)request.getAttribute("emailid");
-      //String contact_number = (String)request.getAttribute("contact_number");
-      
-      //Integer requestedUserId = (Integer)request.getAttribute("userid");
-      
     %>
     
 <!DOCTYPE html>
@@ -42,14 +36,11 @@ function updateprofile(way)
 	var name = document.getElementById("Name").value;
 	if(way == 1)
 		{
-		
-		//var contact_number = document.getElementById("Contact_Number");	
 		url = "editprofile.do?way="+way+"&userid="+userid+"&name="+name;
 		doedit(url);
 		}
 	if(way == 2)
 	{
-	//var name = document.getElementById("Name").value;
 	url = "editprofile.do?way="+way+"&userid="+userid+"&contact_number="+contact_number;
 	doedit(url);
 	}
@@ -80,8 +71,6 @@ function doedit(url)
 		if(ajax.readyState == 4)
 			{
  			alert(ajax.responseText);
-// 			initial_name = name;
-// 			initial_contact_number = contact_number; 
  			location.reload(true);
 			}
 	}
@@ -118,8 +107,6 @@ function deleteaccount(eventid)
 </header>
 
 <div id="all">
-
-<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <h1>
 Edit Profile

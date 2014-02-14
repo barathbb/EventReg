@@ -18,7 +18,6 @@ function checkStartDate()
 	var month = document.getElementById("Start_Month").value;
 	var day = document.getElementById("Start_Day").value;
 	var year = document.getElementById("Start_Year").value;
-	//alert(month+" "+day+" "+year);
 	
 if (month == 4 || month == 6 || month == 9 || month == 11 && day <= 30) {
       // alert("Date is valid")
@@ -99,7 +98,6 @@ function checkDateOrder()
 	
 	if(startDate.getTime() > endDate.getTime())
 		{
-		//alert("Start date is after End date");
 		return false;
 		}
 	else
@@ -242,8 +240,6 @@ function validate()
 
 <div id="all">
 
-<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
-
 <h1>
 Create A New Event
 </h1>
@@ -290,7 +286,6 @@ Description*:
 <td colspan="2" align="Center"> <span id="Event_Type_Message"> </span>
 </td>
 </tr>
-
 
 <tr>
 <td>

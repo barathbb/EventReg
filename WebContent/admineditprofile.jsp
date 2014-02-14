@@ -3,19 +3,11 @@
     
     <%
       Connection conn = (Connection)session.getAttribute("Con");
-     // User thisUser = (User)request.getAttribute("User");
-     // Integer UserId = thisUser.getUserId();
-      
-     Integer UserId = ((Integer)request.getAttribute("userid"));
+      Integer UserId = ((Integer)request.getAttribute("userid"));
       String name = (String)request.getAttribute("name");
       String emailid = (String)request.getAttribute("emailid");
       String contact_number = (String)request.getAttribute("contact_number");
-      
-      //String name = (String)request.getAttribute("name");
-      //String emailid = (String)request.getAttribute("emailid");
-      //String contact_number = (String)request.getAttribute("contact_number");
-      
-      //Integer requestedUserId = (Integer)request.getAttribute("userid");
+
     %>
     
 <!DOCTYPE html>
@@ -53,7 +45,6 @@ function updateprofile(way)
 	{
 		var password = document.getElementById("Password").value;
 		var confirm_password = document.getElementById("Confirm_Password").value;
-		//var old_password = document.getElementById("Old_Password").value;
 		
 		if(password===confirm_password)
 			url="editprofile.do?way="+way+"&userid="+userid+"&password="+password;
@@ -76,6 +67,7 @@ function updateprofile(way)
 			initial_name = name;
 			initial_contact_number = contact_number; 
 			initial_emailid= emailid;
+			location.reload(true);
 			}
 	}
 	ajax.send(null);
@@ -114,8 +106,6 @@ function deleteaccount(eventid)
 </header>
 
 <div id="all">
-
-<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <h1>
 Edit Profile

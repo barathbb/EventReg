@@ -2,7 +2,7 @@
 
 table
 {
-	width:600px;
+	width:500px;
 	margin:0 auto;
 }
 
@@ -10,7 +10,6 @@ td
 {
 	padding-top:10px;
 	padding-bottom:10px;
-	
 }
 
 .eventname:hover
@@ -24,18 +23,17 @@ td
 	font-size:20px;
 }
 
-
 #maintable
 {
 	border: 2px solid #eee;
 	border-radius:4px;
+	width:auto;
 }
 
 .onevalue
 {
 	border: 1px dotted #ddd;
 }
-
 
 #participated, #created
 {
@@ -46,6 +44,7 @@ td
 #participated th,td
 {
 	width:200px;
+	border-color:#ccc;
 }
 
 #created th,td
@@ -53,3 +52,31 @@ td
 	width:200px;
 	border-radius:2px;
 }
+
+.eventrow
+{
+	border: 2px solid black;
+}
+
+.l
+{
+	width:200px;
+}
+
+.r
+{
+	display:none;
+}
+
+.eventrow:hover
+{
+	background-color:#eee;
+}
+
+.eventrow:hover .r
+{
+	display:block;
+}
+
+
+

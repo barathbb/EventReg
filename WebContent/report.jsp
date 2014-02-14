@@ -75,8 +75,6 @@ function assignscores(eventid)
 
 <div id="all">
 
-<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
-
 <a href="showevent.do?eventid=<%=EventId %>" style="Text-decoration:none;"> <h1> <%=eventname %> </h1>  </a>
 
 <% if(hasScore && allDetails!=null)

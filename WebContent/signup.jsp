@@ -76,7 +76,6 @@ function signup()
 	if(isName==true && isPassword==true && isContact==true && isEmail==true) 
 	{ 
 		return true;
-		//window.location.href="signup.do?name="+name+"&email="+email+"&password="+password+"&contact_number="+contact;
 	}
 	else
 	{
