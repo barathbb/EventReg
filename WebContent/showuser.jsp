@@ -8,8 +8,6 @@ if(request.getSession().getAttribute("User") == null)
 	response.sendRedirect("index.jsp");
 
 %>
-    
-    
     <% 
     
     Integer myUserId = ((User)session.getAttribute("User")).getUserId();
@@ -50,7 +48,7 @@ if(request.getSession().getAttribute("User") == null)
 
 function viewreport(eventID)
 {
-	var url = new String("report.jsp?eventid="+eventID);
+	var url = new String("report.do?eventid="+eventID);
 	//var newtab = window.open(url);
 	//newtab.focus();	
 	window.location.href=url;

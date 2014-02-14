@@ -46,7 +46,7 @@ public class ShowUserAction extends Action {
 		
 		
 		//For created events
-		pt1 = conn.prepareStatement("select EventId,Name,Registration_Limit from Events where Event_Owner = ? and Status= ?");
+		pt1 = conn.prepareStatement("select EventId,Name,Registration_Limit from Events where Event_Owner = ? and Status= ? order by EventId desc");
 		pt1.setInt(1, ub.getUserid());
 		pt1.setString(2, "A");
 		
@@ -82,8 +82,8 @@ public class ShowUserAction extends Action {
 			temp.setName(rs.getString("Name"));
 			temp.setEventId(rs.getInt("EventId"));
 			temp.setAvailable(Utils.isAvailable(rs.getInt("EventId"), conn));
+			temp.setEvent_Owner(rs.getInt("Event_Owner"));
 			registeredevents.add(temp);
-			
 		}
 		
 		request.setAttribute("RegisteredEvents", registeredevents);

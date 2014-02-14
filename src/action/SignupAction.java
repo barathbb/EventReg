@@ -25,6 +25,22 @@ public class SignupAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
+		SignupBean sb = (SignupBean)form;
+		
+		char[] contact = sb.getContact_number().toCharArray();
+		
+		for(int i=0; i< contact.length; i++ )
+		{
+			if(Character.isAlphabetic(contact[i]))
+			{
+				request.setAttribute("Name", sb.getName());
+				request.setAttribute("EmailId", sb.getEmail());
+				request.setAttribute("Contact_Number", sb.getContact_number());
+				request.setAttribute("Wrong contact number", new Boolean(true));
+				return mapping.findForward("failure");
+			}
+		}
+		
 		Connection conn;
 		
 		if(request.getSession(true).getAttribute("Con") == null)
@@ -35,8 +51,6 @@ public class SignupAction extends Action {
 			
 		else
 		    conn = (Connection)request.getSession().getAttribute("Con");
-	
-		SignupBean sb = (SignupBean)form;
 		
 		PreparedStatement pt1 = conn.prepareStatement("insert into Users(Name,EmailId,Password,Contact_Number,Account_Type) values(?,?,?,?,?)");
 		
@@ -73,7 +87,6 @@ public class SignupAction extends Action {
 			Integer UserId = 0;
 			while(rs.next())
 				UserId = rs.getInt("UserId");
-			
 			
 			User user = new User();
 			user.setName(sb.getName());

@@ -140,7 +140,7 @@ Edit Profile
 Name :
 </td>
 <td>
-<input type="text" name="name" id="Name" autocomplete="off" value="<%=thisUser.getName()%>"/>
+<input type="text" name="name" id="Name" autocomplete="off" value="<%=thisUser.getName()%>" autocomplete="off"/>
 </td>
 </tr>
 
@@ -149,7 +149,7 @@ Name :
 Contact Number:
 </td>
 <td>
-<input type="tel" name="contact_number" id="Contact_Number" autocomplete="off" value="<%=thisUser.getContact_Number()%>"/>
+<input type="tel" name="contact_number" id="Contact_Number" autocomplete="off" value="<%=thisUser.getContact_Number()%>" autocomplete="off"/>
 </td>
 </tr>
 

@@ -34,12 +34,17 @@ a
 	text-decoration:none;
 }
 
+.eventname:hover
+{
+	color:green;
+}
+
 .oneevent
 {
 	border-weight:lighter;
 	padding-top:2.5px;
 	padding-bottom:2.5px;	
-	height:100px;	
+	height:120px;	
 	border-bottom-width:1px; 
  	border-bottom-style:solid; 
 }
@@ -69,8 +74,7 @@ a
 .dates
 {
 	float:right;
-	padding-top:30px;
-	
+	padding-top:30px;	
 }
 
 .details
@@ -84,11 +88,15 @@ a
 }
 
 .Register, .reged_button
-{
-	
+{	
 	padding-right:10px;
 	float:right;
 	border-type:solid;
+}
+
+.Unregister : hover
+{
+	background-color:red;
 }
 
 .reg_button
@@ -103,7 +111,6 @@ a
 	background-color:red;
 }
 
-
 .statuslist
 {
 	margin-left:60px;
@@ -112,4 +119,3 @@ a
 	padding-bottom:3px;
 	font-size:15px;
 }
-

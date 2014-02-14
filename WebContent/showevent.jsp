@@ -40,10 +40,9 @@
 
 function viewreport(eventID)
 {
-	var url = new String("report.jsp?EventId="+eventID);
+	var url = new String("report.do?eventid="+eventID);
 	window.location.href=url;
 }
-
 
 function deleteevent(eventid)
 {
@@ -104,7 +103,9 @@ if(thisIsMyEvent == true)
 	
 	<a href="editevent.do?eventid=<%=event.getEventId()%>"><button type="button"> Edit event </button> </a> <br/> <br/>
 	
-	<button onclick="deleteevent(<%=event.getEventId()%>);" >  Delete event!</button>
+	<button onclick="deleteevent(<%=event.getEventId()%>);" >  Delete event!</button> <br/> <br/>
+	
+	<button style="padding-right:10px;" type="button" style="float:right;" id="<%=event.getEventId()%>" onclick="viewreport(this.id);"> View Report </button>
 	
 	<%
 	
@@ -140,7 +141,6 @@ else
 
 %>
 
-
 </td>
 
 </tr>
@@ -174,11 +174,7 @@ else
 
 </td>
 
-
 </tr>
-
-
-
 
 <% if(request.getAttribute("Available Entries") != null && event.getRegistration_Limit() != -1 && event.getAvailable()) 
 {
@@ -186,13 +182,13 @@ else
 %>
 
 <tr colspan="2">
-<td> Registration Limit :  <%=event.getRegistration_Limit() %>
+<td><b> Registration Limit : </b>  <%=event.getRegistration_Limit() %> 
 </td>
 </tr>
 
 
 <tr colspan="2">
-<td> Available Entries :  <%=request.getAttribute("Available Entries")%>
+<td> <b> Available Entries : </b> &nbsp;&nbsp; <%=request.getAttribute("Available Entries")%>
 </td>
 </tr>
 
@@ -222,7 +218,6 @@ if(otherevents.size() != 0)
 <tr>
 <td colspan="2">
 
-
 <table id="otherevents" cellspacing="2" border="1">
 
 <%
@@ -230,7 +225,6 @@ if(otherevents.size() != 0)
 for(Event e : otherevents)
 {
 
-	
 %>
 
 <tr>
@@ -242,7 +236,6 @@ for(Event e : otherevents)
 <td>
 
 <%
-
 
 if(!(thisIsMyEvent))
 {
@@ -298,7 +291,6 @@ else
 </table>
 
 </div>
-
 
 </body>
 </html>

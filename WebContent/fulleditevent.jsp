@@ -9,8 +9,6 @@ Integer UserId = ((User)session.getAttribute("User")).getUserId();
 
 Event event= (Event)request.getAttribute("Event");
 
-
-
 Timestamp startDate,endDate;
 
 startDate = event.getStart_Date();
@@ -272,7 +270,7 @@ Event name*:
 Description*:
 </td>
 <td>
-<textarea name="description" id="Description" cols="30" rows="5"  autofill="off"><%=event.getDescription() %></textarea>
+<textarea name="description" id="Description" cols="30" rows="5"  autocomplete="off" ><%=event.getDescription() %></textarea>
 </td>
 </tr>
 
@@ -313,11 +311,11 @@ Start date*:
 <td>
 
 
-<input type="number" size="5" id="Start_Month" name="start_month" placeholder="MM" width="20" onchange="checkStartDate();" value="<%=startDateArr[1] %>" /> 
+<input type="number" size="5" id="Start_Month" name="start_month" placeholder="MM" width="20" onchange="checkStartDate();" value="<%=startDateArr[1] %>" autocomplete="off" /> 
 
-<input type="number" size="5" name="start_day" width="15" placeholder="dd" onchange="checkStartDate();" value="<%=startDateArr[2] %>" />
+<input type="number" size="5" name="start_day" width="15" placeholder="dd" onchange="checkStartDate();" value="<%=startDateArr[2] %>" autocomplete="off" />
 
-<input type="number" name="start_year" id="Start_Year" placeholder="yyyy" size="5" onchange="checkStartDate();" value="<%=startDateArr[0] %>" /> 
+<input type="number" name="start_year" id="Start_Year" placeholder="yyyy" size="5" onchange="checkStartDate();" value="<%=startDateArr[0] %>" autocomplete="off" /> 
 
 MM / dd / yyy
 
@@ -330,10 +328,10 @@ Start time*:
 </td>
 <td>
 
-<input type="number" size="5" placeholder="hh" name="start_hour" id="Start_Hour" value="<%=startTimeArr[0] %>"/>
+<input type="number" size="5" placeholder="hh" name="start_hour" id="Start_Hour" value="<%=startTimeArr[0] %>"  autocomplete="off" />
 
 
-<input type="number" size="5" placeholder="mm" name="start_minute" id="Start_Minute"  value="<%=startTimeArr[1] %>"/>
+<input type="number" size="5" placeholder="mm" name="start_minute" id="Start_Minute"  value="<%=startTimeArr[1] %>"  autocomplete="off" />
 
 
 
@@ -363,11 +361,11 @@ End date*:
 </td>
 <td>
 
-<input type="number" size="5" id="End_Month" placeholder="MM" name="end_month" width="20"  onchange="checkEndDate();" value="<%=endDateArr[1] %>" />
+<input type="number" size="5" id="End_Month" placeholder="MM" name="end_month" width="20"  onchange="checkEndDate();" value="<%=endDateArr[1] %>" autocomplete="off" />
 
-<input type="number" size="5" id="End_Day" placeholder="dd" name="end_day" width="15"  onchange="checkEndDate();" value="<%=endDateArr[2] %>" />
+<input type="number" size="5" id="End_Day" placeholder="dd" name="end_day" width="15"  onchange="checkEndDate();" value="<%=endDateArr[2] %>" autocomplete="off" />
 
-<input type="number" name="end_year" id="End_Year" placeholder="yyyy" size="5"  onchange="checkEndDate();" value="<%=endDateArr[0] %>" />
+<input type="number" name="end_year" id="End_Year" placeholder="yyyy" size="5"  onchange="checkEndDate();" value="<%=endDateArr[0] %>" autocomplete="off" />
 
 MM / dd / yyy
 
@@ -380,9 +378,9 @@ End time*:
 </td>
 <td>
 
-<input type="number" size="5" placeholder="hh" id="End_Hour" name="end_hour" value="<%=endTimeArr[0] %>" />
+<input type="number" size="5" placeholder="hh" id="End_Hour" name="end_hour" value="<%=endTimeArr[0] %>" autocomplete="off" />
 
-<input type="number" size="5" placeholder="mm" name="end_minute" id="End_Minute" value="<%=endTimeArr[1] %>" />
+<input type="number" size="5" placeholder="mm" name="end_minute" id="End_Minute" value="<%=endTimeArr[1] %>"  autocomplete="off" />
 
 <select name="end_AMPM" id="End_AMPM">
 
@@ -467,7 +465,7 @@ Event location*:
 <tr id="reg_limit" style="display:none;">
 <td> Enter the registration limit : 
 </td>
-<td> <input type="text" name="registration_limit" id="Registration_Limit" cols="30" />
+<td> <input type="text" name="registration_limit" id="Registration_Limit" cols="30" autocomplete="off"/>
 </td>
 </tr>
 

@@ -25,7 +25,6 @@ public class ShowEditEventAction extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
-		
 		HttpSession session = request.getSession();
 		
 		Connection conn = (Connection)session.getAttribute("Con");

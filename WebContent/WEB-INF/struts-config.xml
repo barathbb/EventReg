@@ -43,6 +43,7 @@
         
         <action path="/signup" type="action.SignupAction" name="signupBean">
         	<forward name="done" path="/bigresult.jsp" />
+        	<forward name="failure" path="/signup.jsp" />
         	<!-- <forward name="wrong" path="/home.jsp" />  -->
         </action>
         
@@ -106,11 +107,7 @@
         	<forward name="success" path="/showuser.jsp"></forward>
         	<forward name="adminsuccess" path="/adminshowuser.jsp"></forward>
         </action>
-        
-        <action path="/editprofile" type="action.EditUserAction" name="editUserBean">
-        	<forward name="success" path="/result.jsp"></forward>
-        </action>
-        
+
         <action path="/editprofile" type="action.EditUserAction" name="editUserBean">
         	<forward name="success" path="/result.jsp"></forward>
         	<forward name="failure" path="/result.jsp"></forward>
@@ -119,7 +116,7 @@
         
         <action path="/deleteaccount" type="action.DeleteAccountAction" name="userBean">
         	<forward name="success" path="/index.jsp"></forward>
-        	<forward name="adminsuccess" path="/adminhome.jsp#tab1"></forward>
+        	<forward name="adminsuccess" path="/home.do"></forward>
         </action>
         
         <action path="/deleteevent" type="action.DeleteEventAction" name="eventBean">

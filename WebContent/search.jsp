@@ -13,10 +13,10 @@
 <div id="all">
 
 
+<input type="text" name="search_string"  id="Search_String "/>
 
 
 </div>
-
 
 </body>
 </html>

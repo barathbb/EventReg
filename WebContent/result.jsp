@@ -27,6 +27,10 @@ if(request.getAttribute("Profile edited") != null && (Boolean)request.getAttribu
 	out.write( request.getAttribute("Changed Attribute") + " has been updated! ");
 }
 
+if(request.getAttribute("Profile edited") != null && (Boolean)request.getAttribute("Profile edited") == false )
+{
+	out.write( request.getAttribute("Changed Attribute") + " is wrong! Value not updated ");
+}
 
 if(request.getAttribute("Profile edited") != null && (Boolean)request.getAttribute("Profile edited") == false ) //For wrong email -ADMIN ONLY
 {
@@ -36,12 +40,6 @@ if(request.getAttribute("Profile edited") != null && (Boolean)request.getAttribu
 		out.write("Old password is wrong!");
 }
 
-/*
-if(request.getAttribute("Profile edited") != null && (Boolean)request.getAttribute("Profile edited") == false ) //For wrong password
-{
-	out.write("Old" + request.getAttribute("Changed Attribute") + " is wrong! ");
-}
-*/
 // For score updating
 
 if(request.getAttribute("Scored") != null && (Boolean)request.getAttribute("Scored") == true)
@@ -79,5 +77,3 @@ if(request.getAttribute("Status") != null)
 }
 
 %>
-
-

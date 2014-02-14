@@ -8,7 +8,7 @@ if(request.getSession().getAttribute("User") != null)
 
 %>
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
@@ -24,29 +24,7 @@ function clearurl()
 	m = document.URL.lastIndexOf("/",o);
 	document.URL = document.URL.substring(0, m);
 }
-/*
-function verifysignin()
-{
-	var aj = new XMLHttpRequest();
-	var email=document.getElementById("email").value;
-	var pass = document.getElementById("pass").value;
-	
-	aj.open("POST","verifysignin.jsp?Email="+email+"&Password="+pass , true);
-	
-	aj.onreadystatechange = function()
-	{
-		if(aj.readyState ==4) 
-			{
-				document.getElementById("check_message").innerHTML = aj.responseText;
-				if(aj.responseText.length == 13)
-				{
-					window.location.href="home.do#tab1";
-				}; 
-			}
-	}
-	aj.send(null);
-} 
- 
+
 function gotosignup(type)
 {
 	window.location.href="signup.jsp?Account_Type="+new String(type);

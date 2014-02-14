@@ -9,7 +9,7 @@ if(request.getSession().getAttribute("User") == null)
 	response.sendRedirect("index.jsp");
 
 %>
-    
+  
     <% try {  %>
     
 <!DOCTYPE html>
@@ -40,9 +40,7 @@ function fetchapprovedevents()
 		if(ajax.readyState == 4)
 			{
 			document.getElementById("tab1").innerHTML=ajax.responseText;
-			//alert(ajax.responseText);
 			}
-		//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -57,7 +55,6 @@ function fetchpendingevents()
 			{
 			document.getElementById("tab2").innerHTML=ajax.responseText;
 			}
-		//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -74,7 +71,6 @@ function fetchrejectedevents()
 			{
 			document.getElementById("tab3").innerHTML=ajax.responseText;
 			}
-			//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -91,7 +87,6 @@ function fetchusers()
 			{
 			document.getElementById("tab4").innerHTML=ajax.responseText;
 			}
-			//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -104,8 +99,6 @@ function fetchusers()
 	function viewreport(eventID)
 	{
 		var url = new String("report.do?eventid="+eventID);
-		//var newtab = window.open(url);
-		//newtab.focus();	
 		window.location.href=url;
 	}
 	
@@ -113,7 +106,14 @@ function fetchusers()
 	{
 		var url = new String(document.URL);
 		var tab = url.substring(url.length - 1, url.length);
-		if(tab ==1)
+		if(url.lastIndexOf("#")<0)
+			{
+			tab = 1;
+			document.getElementById("head1").click();
+			return;
+			}
+		
+		if(tab == 1)
 			{
 			fetchapprovedevents();
 			highlight(1);
@@ -186,22 +186,14 @@ function fetchusers()
 				{
 				var aj = new XMLHttpRequest();
 				aj.open("POST","changestatus.do?eventid="+eventid+"&status="+status);
-				//alert(eventid+"  "+status);
 				aj.onreadystatechange = function()
 				{
 					if(aj.readyState==4)
 						{
-						//alert(aj.responseText);
-						//alert(document.getElementById(eventid).innerHTML);
-						//adminfetchpendingrequests();
-						//pagerefresh();		Include this if the successive line doesn't work
 						document.getElementById(eventid).innerHTML = "";
 						document.getElementById(eventid).setAttribute("style", "height:0px;");
 						pagerefresh();
 						}
-						//alert("The event has been approved");
-					
-					//document.getElementById(eventid).remove();
 				}
 				aj.send(null);
 				}
@@ -214,19 +206,13 @@ function fetchusers()
 				{
 				var aj = new XMLHttpRequest();
 				aj.open("POST","changestatus.do?eventid="+eventid+"&status="+status);
-				//alert(eventid+"  "+status);
 				aj.onreadystatechange = function()
 				{
 					if(aj.readyState==4)
 					{	
-						//alert(aj.reponseText);
-						//alert(document.getElementById(eventid).innerHTML);
-						//adminfetchpendingrequests();
-						//pagerefresh();   Include this if the successive line doesn't work 
 						document.getElementById(eventid).innerHTML = "";
 						pagerefresh();
 					}
-					//document.getElementById(eventid).remove();
 				}
 				aj.send(null);
 				}
@@ -239,25 +225,18 @@ function fetchusers()
 				{
 				var aj = new XMLHttpRequest();
 				aj.open("POST","changestatus.do?eventid="+eventid+"&status="+status);
-				//alert(eventid+"  "+status);
 				aj.onreadystatechange = function()
 				{
 					if(aj.readyState==4)
 					{	
-						//alert(aj.reponseText);
-						//alert(document.getElementById(eventid).innerHTML);
-						//adminfetchpendingrequests();
-						//pagerefresh();   Include this if the successive line doesn't work 
 						document.getElementById(eventid).innerHTML = "";
 						pagerefresh();
 					}
-					//document.getElementById(eventid).remove();
 				}
 				aj.send(null);
 				}
 		}
 	}
-	
 	
 	function highlight(n)
 	{
@@ -296,21 +275,15 @@ function fetchusers()
 </head>
 <body onload="pagerefresh();">
 
+
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
+
 <div id="all">
-
-<h1 align="center">
-Event registration
-</h1>
-
-<br/>
-
-<a href="signout.do"> <button style="float:right; margin-left:10px;"> Sign Out!  </button> </a>
-
-<a href="showuser.do?userid=<%=((User)request.getSession().getAttribute("User")).getUserId() %>" > <button type="button" style="float:right;">View my profile </button> </a>
-
-
-
-<h3>  Welcome <a href="showuser.do?userid=<%=((User)session.getAttribute("User")).getUserId()%>"> <% out.write(((User)session.getAttribute("User")).getName()); %> </a></h3>
 
 <div class="example">
 

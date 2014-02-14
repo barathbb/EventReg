@@ -56,7 +56,7 @@ public class ShowEventAction extends Action {
 
 		request.setAttribute("Event", e);
 		
-		PreparedStatement pt2 = conn.prepareStatement("select EventId,Name,Registration_Limit from Events where Event_Owner = ? and Status = ? and EventId <> ?");
+		PreparedStatement pt2 = conn.prepareStatement("select EventId,Name,Registration_Limit from Events where Event_Owner = ? and Status = ? and EventId <> ? order by EventId desc");
 		pt2.setInt(1, e.getEvent_Owner());
 		pt2.setString(2, "A");
 		pt2.setInt(3, eb.getEventid());

@@ -172,7 +172,7 @@ Edit Event - <%=event.getName() %>
 Event name*:
 </td>
 <td>
-<input type="text" name="name" id="Name" size="30" autofill="off" value="<%=event.getName()%>"/>
+<input type="text" name="name" id="Name" size="30" autofill="off" value="<%=event.getName()%>" autocomplete="off" />
 </td>
 </tr>
 
@@ -181,7 +181,7 @@ Event name*:
 Description*:
 </td>
 <td>
-<textarea name="description" id="Description" cols="30" rows="5"  autofill="off"><%=event.getDescription() %></textarea>
+<textarea name="description" id="Description" cols="30" rows="5"  autofill="off" ><%=event.getDescription() %></textarea>
 </td>
 </tr>
 
@@ -276,7 +276,7 @@ Event location*:
 	{ %>
 
 
-<tr id="reg_limit" style="display:none;">
+<tr id="reg_limit" style="display:none;" autocomplete="off">
 <td> Enter the registration limit : 
 </td>
 <td> <input type="text" name="registration_limit" id="Registration_Limit" cols="30" />
@@ -285,7 +285,7 @@ Event location*:
 
 <% } else  { %>
 
-<tr id="reg_limit" style="">
+<tr id="reg_limit" style="" autocomplete="off">
 <td> Enter the registration limit : 
 </td>
 <td> <input type="text" name="registration_limit" id="Registration_Limit" cols="30" value="<%=event.getRegistration_Limit()%>" autocomplete="off" />

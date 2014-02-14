@@ -22,7 +22,7 @@
     
     %>
     
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,8 +35,6 @@
 <script type="text/javascript">
 
 var count = <%=allDetails!=null ? allDetails.size() : 0%>
-
-
 
 function removeentry(userid,eventid)
 {
@@ -63,18 +61,7 @@ var isAssignScore = true;
 
 function assignscores(eventid)
 {	
-	window.location.href = "editreport.jsp?EventId="+eventid+"&AssignScore=true";
-	 
-	//var arr = document.getElementsByName("tscore");
-	
-	//for(i=0;i<arr.length;i++)
-		//{
-		//val = arr[i].innerHTML;
-		//thisid = arr[i].id;
-		//arr[i].innerHTML = "<input class=\""+thisid+"\" type=\"text\" size=\"8\"/ value=\""+val+"\"  id=\""+thisid+"\"/>";
-		//}
-	//var button = document.getElementById("toggle");
-	//button.innerHTML = "Save all"; 	 
+	window.location.href = "editreport.jsp?EventId="+eventid+"&AssignScore=true";	 
 }
  
  </script>
@@ -85,7 +72,7 @@ function assignscores(eventid)
 
 <a href="home.do#tab1"><button type="button"> Go Home!</button></a>
 
-<h1> <%=eventname %> </h1> 
+<a href="showevent.do?eventid=<%=EventId %>" style="Text-decoration:none;"> <h1> <%=eventname %> </h1>  </a>
 
 <% if(hasScore && allDetails!=null)
 	{ %>
@@ -125,17 +112,14 @@ else { %>
 <% } %>
 
 <%
-
-//while(r2.next())
 	
 if(allDetails!=null)
 {
-	
 
 for(Integer i : allDetails.keySet())
 {
   String[] details = allDetails.get(i);
-	//User oneUser = Utils.getUserDetails(r2.getInt("UserId"), conn,session);
+  
 %>
 
 <tr id=<%=i%> >

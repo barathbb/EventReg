@@ -36,11 +36,18 @@ public class DeleteAccountAction extends Action {
 		String forward_string = "";
 		
 		if(((User)request.getSession().getAttribute("User")).getAccount_Type().equals("A"))
+		{	
 			forward_string = "adminsuccess";
+			response.sendRedirect("home.do");
+		}
 		
 		if(((User)request.getSession().getAttribute("User")).getAccount_Type().equals("U"))
+		{
 			forward_string = "success";
+			response.sendRedirect("signout.do");
+		}
 
+		
 		return mapping.findForward(forward_string);	
 	}
 }

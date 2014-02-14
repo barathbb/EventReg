@@ -22,7 +22,7 @@
     
     %>
     
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -35,17 +35,9 @@
 <script type="text/javascript">
 
 var count = <%=allDetails.size()%>
-/*
-function viewreporteventwise(eventID)
-{
-	var url = new String("reporteventwise.jsp?eventID="+eventID);
-	var newtab = window.open(url,"_blank");
-	newtab.focus();		
-}
-*/
+
 function removeentry(userid,eventid)
 {
-	//alert("Hi");
 	if(confirm("Are you sure you want to remove this entry :"))
 		{
 		
@@ -78,19 +70,6 @@ function savescores(eventid)
 	
 	for(var m = 0; m< ips.length ; m++ )
 		{
-		//alert(ips[m].value + ips[m].className)
-		/*a = new Array(3);
-		
-		a[0] = eventid;
-		
-		a[1] = ips[m].className;
-		
-		a[2] = ips[m].value;
-
-		arr.push(a);
-		
-		saveall(arr);*/
-		
 		ids.push(ips[m].id);
 		
 		scores.push(ips[m].value);
@@ -100,16 +79,11 @@ function savescores(eventid)
 
 function saveall(ids,scores,eventid)
 {
-	//alert(ids);
-	//alert(scores);	
-	
 	var scoresCorrect = true;
 	
 	var m = new String(scores);
 	
 	var arr = m.split(",");
-	
-	//alert(arr);  
 	
 	for(i=0;i<arr.length;i++) 
 	{
@@ -131,27 +105,6 @@ function saveall(ids,scores,eventid)
 	
 }
 
-/*
-
-function saveonescore(eventid,userid,value)
-{
-	var url = "savescore.do?eventid="+eventid+"&userid="+userid+"&value="+value;
-	var ajax = new XMLHttpRequest();
-	ajax.open("POST",url,true);
-	ajax.onreadystatechange = function(){
-		if(ajax.readyState == 4)
-			{
-			 //alert(ajax.responseText);
-			 return true;
-			}
-	}
-	ajax.send(null);
-}
-
-*/
-
-
-
 </script>
 
 <body>
@@ -165,11 +118,8 @@ function saveonescore(eventid,userid,value)
 <% if(hasScore)
 	{ %>
 
-  
-
 <button type="button" style="float:right;margin-right:100px;" onclick="savescores(<%=EventId%>);"> Save scores</button>
 
-<!--  <button type="button" style="float:right; margin-right:150px;" onclick="cancel(<%=EventId%>);"> Cancel </button>  -->
  <br/>
 <br/> <br/>
 
@@ -211,7 +161,6 @@ else { %>
 	for(Integer i : allDetails.keySet())
 {
   String[] details = allDetails.get(i);
-	//User oneUser = Utils.getUserDetails(r2.getInt("UserId"), conn,session);
 %>
 
 <tr id=<%=i%> >
@@ -225,14 +174,10 @@ else { %>
  
 
 <td class="tscore" name="tscore" id="<%=i %>" align="center"><%
- //out.write(scores.get(i)==null ? 0 : (int)scores.get(i));
-
-//System.out.write(scores.get(i));
- 
 
   %>
   
-  <input class="score" type="text" name="score" size="8" value="<%=scores.get(i)==null ? 0 : scores.get(i) %>"  id="<%=i %>" />
+  <input class="score" type="text" name="score" size="8" value="<%=scores.get(i)==null ? 0 : scores.get(i) %>"  id="<%=i %>"  autocomplete="off" />
   
   </td>
   

@@ -26,7 +26,7 @@
   
   %>  
     
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -91,7 +91,6 @@ A  <%=event.getEvent_Type(conn) %> <br/> <br/>
 
 conducted by &nbsp;
 
-
 <a href="showuser.do?userid=<%=event.getEvent_Owner() %>" >  <%=Name %> </a>
 
 </td>
@@ -109,7 +108,6 @@ conducted by &nbsp;
 	<%
 	
 %>
-
 
 </td>
 
@@ -145,8 +143,7 @@ conducted by &nbsp;
 </td>
 </tr>
 
-
-<% if(request.getAttribute("Available Entries") != null && event.getRegistration_Limit() != -1 && event.getAvailable()) 
+<% if(request.getAttribute("Available Entries") != null && event.getRegistration_Limit() != -1 ) 
 {
 
 %>
@@ -156,15 +153,12 @@ conducted by &nbsp;
 </td>
 </tr>
 
-
 <tr colspan="2">
-<td> Available Entries :  <%=request.getAttribute("Available Entries")%>
+<td> Available Entries : &nbsp; &nbsp; <%=request.getAttribute("Available Entries")%>
 </td>
 </tr>
 
 <% } %>
-
-
 
 <tr><td><br/></td></tr>  
 
@@ -221,9 +215,7 @@ for(Event e : otherevents)
 
 }
 
-
 %>
-
 
 </table>
 

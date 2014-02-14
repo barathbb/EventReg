@@ -23,12 +23,6 @@
 	<div class="oneevent" id="<%=e.getEventId() %>" >
 
 	<div class="eventdetails">
-
-	<%
-			
-	//out.write(" <h4 class=\"Edit_event_details\" align=\"right\" > Edit event </h4> ");
-		
-	%>
 	
 	<div class="details">
 
@@ -115,4 +109,4 @@
 	if(eventlist == null)
 		out.write("<h4 align=\"center\"> There are no events</h4>");
 	%>
-
+	

@@ -2,11 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
     
-    <% boolean has=false;
-    User u = null;
-    if(request.getAttribute("UserData") != null){
-    	u = (User)request.getAttribute("UserData"); has = true;}
-    	%>
+    
     
 <!DOCTYPE html >
 <html>
@@ -30,37 +26,63 @@ function signup()
 	var email=new String(document.getElementById("Email").value);
 	var contact=new String(document.getElementById("Contact_Number").value);
 	
-	if(password.length<3)
+	if(password.length == 0)
+	{
+		alert("Please enter a Password");
+		return false;
+	}
+	else if(password.length<3)
+	{
 		alert("Password is too short");
+		return false;
+	}
 	else if(password.length>32)
+		{
 		alert("Password is too long");
+		return false;
+		}
 	else if(!(password===confirm_password))
+		{
 		alert("Passwords don't match");
+		return false;
+		}
 	else
 		isPassword = true;
 	
 	if(name.length == 0)
+		{
 		alert("Please enter a name");
+		return false;
+		}
 	else 
 		isName= true;
 	
 	if(email.length==0)
+		{
 		alert("Please enter an email");
+		return false;
+		}
 	else
 		isEmail=true;
 	
 	if(contact.length == 0)
+		{
 		alert("Please enter contact number");
+		return false;
+		}
 	else
 		isContact = true;
 	
 	if(isName==true && isPassword==true && isContact==true && isEmail==true) 
 	{ 
-		window.location.href="signup.do?name="+name+"&email="+email+"&password="+password+"&contact_number="+contact;
-		//document.getElementById("signupform").submit();
+		return true;
+		//window.location.href="signup.do?name="+name+"&email="+email+"&password="+password+"&contact_number="+contact;
 	}
 	else
+	{
 		alert("Check the entries again");
+		return false;
+	}
 }
 
 </script>
@@ -78,16 +100,21 @@ Sign up
 
 
 <div id="form">
-<form action="javascript:signup();" method="post" id="signupform">
+<form onsubmit="return signup();" action="signup.do" method="post" id="signupform">
 
 <table border="0">
+
+<%
+
+%>
+
 
 <tr>
 <td>
 Name :
 </td>
 <td>
-<input type="text" name="Name" id="Name" autocomplete="off" value="<%  out.write(has ? u.getName() : ""); %>" />
+<input type="text" name="name" id="Name" autocomplete="off" value="<%=request.getAttribute("Name")!= null ? request.getAttribute("Name") : "" %>" />
 </td>
 </tr>
 
@@ -96,7 +123,7 @@ Name :
 E-Mail :
 </td>
 <td>
-<input type="email" name="Email" id="Email" autocomplete="off" value="<%  out.write(has ? u.getEmailId() : ""); %>"/>
+<input type="email" name="email" id="Email" autocomplete="off" value="<%=request.getAttribute("EmailId")!= null ? request.getAttribute("EmailId") : "" %>"/>
 </td>
 </tr>
 
@@ -105,7 +132,7 @@ E-Mail :
 Password :
 </td>
 <td>
-<input type="password" name="Password" id="Password" />
+<input type="password" name="password" id="Password" />
 </td>
 </tr>
 
@@ -123,15 +150,13 @@ Confirm Password :
 Contact Number:
 </td>
 <td>
-<input type="tel" name="Contact_Number" id="Contact_Number" autocomplete="off" value="<%  out.write(has ? u.getContact_Number() : ""); %>"/>
+<input type="tel" name="contact_number" id="Contact_Number" autocomplete="off" value="<%=request.getAttribute("Contact_Number")!= null ? request.getAttribute("Contact_Number") : "" %>"/>
 </td>
 </tr>
 
 <tr>
 <td colspan="2" align="center">
-<% if(request.getAttribute("Message") != null)
-	 out.write(request.getAttribute("Message").toString());
-	%>
+
 
 </td>
 </tr>
@@ -141,14 +166,18 @@ Contact Number:
 
 <button type="submit" name="Sign Up" value="Sign Up"> Sign Up</button>
 
-<!--  
-
-<input type="submit" name="sign_up" value="Sign Up" />
-
- -->
-
 </td>
 </tr>
+
+<script type="text/javascript">
+
+<%
+if(request.getAttribute("Wrong contact number")!= null && (Boolean)request.getAttribute("Wrong contact number")==true)
+	out.write("alert(\"Contact Number is invalid\")");
+%>
+
+</script>
+
 
 </table>
 

@@ -86,22 +86,6 @@ function checkDateOrder()
 	var eminute = document.getElementById("End_Minute").value;
 	var eampm = new String(document.getElementById("End_AMPM").value);
 	
-	/*//alert(shour);
-	
-	if(syear > eyear)
-		alert("Improper dates");
-	else if(syear <= eyear)
-		{
-		if(smonth > emonth)
-			alert("Improper dates");
-		else if(smonth <= emonth)
-			{
-			if(sday > eday)
-				alert("Improper dates");
-			}
-		}
-	*/
-	
 	var pm = new String("PM");
 	
 	if(sampm===pm)
@@ -120,10 +104,8 @@ function checkDateOrder()
 		}
 	else
 		return true;
-
 	}
-	
-	
+		
 function setYears()
 {
 	var d = new Date();
@@ -132,7 +114,6 @@ function setYears()
 }
 
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
 
 function showlimit()
 {
@@ -153,7 +134,7 @@ function showeventtypemessage()
 	//Update list whenever a new event type is added 
 	if(et == "C")  
 	{
-		sen.innerHTML = "Competition allow you to put scores for the participants";
+		sen.innerHTML = "Competition allows you to put scores for the participants";
 	}
 	if(et == "M")
 	{
@@ -165,7 +146,15 @@ function showeventtypemessage()
 	}
 	if(et == "H")
 	{
-		sen.innerHTML = "Hackathon allow you to put scores for the participants";
+		sen.innerHTML = "Hackathon allows you to put scores for the participants";
+	}
+	if(et == "T")
+	{
+		sen.innerHTML = "Tournament allows you to put scores for the participants";
+	}
+	if(et == "L")
+	{
+		sen.innerHTML = "Lecture doesn't allow you to put scores for the participants";
 	}
 	
 	document.getElementById("Message_Row").style.display="table-row";
@@ -177,7 +166,6 @@ function removeMessage()
 	sen.innerHTML = "";
 }
 
-
 function validate()
 {
 	var isName=false,isDescription=false,isDate=false,isLimit=false;
@@ -185,7 +173,6 @@ function validate()
 	var description = new String(document.getElementById("Description").value);
 	var limit_no = document.getElementById("Limit_No");
 	var limit_yes = document.getElementById("Limit_Yes");
-	
 	
 	if(name.length==0)
 	{
@@ -231,7 +218,6 @@ function validate()
 			isLimit=true;
 		}
 	
-	
 	if(isName && isDescription && isDate && isLimit)
 		{
 	
@@ -242,13 +228,11 @@ function validate()
 	
 }
 
-
 </script>
 
 </head>
 
 <body onload="setYears();">
-
 
 <div id="all">
 
@@ -265,7 +249,7 @@ Create A New Event
 Event name*:
 </td>
 <td>
-<input type="text" name="name" id="Name" size="30" autofill="off" />
+<input type="text" name="name" id="Name" size="30" autocomplete="off" />
 </td>
 </tr>
 
@@ -274,7 +258,7 @@ Event name*:
 Description*:
 </td>
 <td>
-<textarea name="description" id="Description" cols="30" rows="5"  autofill="off"></textarea>
+<textarea name="description" id="Description" cols="30" rows="5" ></textarea>
 </td>
 </tr>
 

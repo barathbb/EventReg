@@ -9,8 +9,6 @@ if(request.getSession().getAttribute("User") == null)
 	response.sendRedirect("index.jsp");
 
 %>
-    
-    
     <% try {  %>
     
 <!DOCTYPE html>
@@ -41,9 +39,7 @@ function fetchallevents()
 		if(ajax.readyState == 4)
 			{
 			document.getElementById("tab1").innerHTML=ajax.responseText;
-			//alert(ajax.responseText);
 			}
-		//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -58,7 +54,6 @@ function fetchregisteredevents()
 			{
 			document.getElementById("tab2").innerHTML=ajax.responseText;
 			}
-		//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -75,7 +70,6 @@ function fetchmyevents()
 			{
 			document.getElementById("tab3").innerHTML=ajax.responseText;
 			}
-			//alert(ajax.responseText);
 	}
 	ajax.send(null);
 }
@@ -88,8 +82,6 @@ function fetchmyevents()
 	function viewreport(eventID)
 	{
 		var url = new String("report.do?eventid="+eventID);
-		//var newtab = window.open(url);
-		//newtab.focus();	
 		window.location.href=url;
 	}
 	
@@ -97,6 +89,14 @@ function fetchmyevents()
 	{
 		var url = new String(document.URL);
 		var tab = url.substring(url.length - 1, url.length);
+		
+		if(url.lastIndexOf("#")<0)
+		{
+		tab = 1;
+		document.getElementById("head1").click();
+		return;
+		}
+		
 		if(tab ==1)
 			{
 			fetchallevents();
@@ -184,38 +184,28 @@ function fetchmyevents()
 </script>
 
 </head>
+
 <body onload="pagerefresh();">
+
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
 
 <div id="all">
 
-<a href="About.jsp" style="text-decoration:none;">
-<h1 align="center" >
-Event registration
-</h1>
-</a>
-
-<br/>
-
-<a href="signout.do"> <button style="float:right; margin-left:10px;"> Sign Out!  </button> </a>
-
-<a href="showuser.do?userid=<%=((User)request.getSession().getAttribute("User")).getUserId() %>" > <button type="button" style="float:right;">View my profile </button> </a>
-
-
-
-<h3>  Welcome <a href="showuser.do?userid=<%=((User)session.getAttribute("User")).getUserId()%>"> <% out.write(((User)session.getAttribute("User")).getName()); %> </a></h3>
-
 <div class="example">
 
-<p class="menu"> <a href="#tab1" id="head1" class="tab" onclick="fetchallevents();highlight(1);">All events</a> <a href="#tab2" id="head2" class="tab" onclick="fetchregisteredevents();highlight(2);">Registered events</a> <a href="#tab3" id="head3" class="tab" onclick="fetchmyevents();highlight(3);">My Events</a> 
-   </p>
+<div class="menu" style="margin-top:15px;"> <a href="#tab1" id="head1" class="tab" onclick="fetchallevents();highlight(1);">All events</a> <a href="#tab2" id="head2" class="tab" onclick="fetchregisteredevents();highlight(2);">Registered events</a> <a href="#tab3" id="head3" class="tab" onclick="fetchmyevents();highlight(3);">My Events</a> 
+   </div>
 
     <div class="items">
     
      <p id="default"><!-- by default, show no text --></p>
      
-     <p id="tab1" autofocus="on">
-     <!-- To view all events -->
-
+     <p id="tab1" autofocus="on">  <!-- To view all events -->
+     
      </p>
      
      <p id="tab2">

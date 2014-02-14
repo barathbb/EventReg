@@ -26,10 +26,12 @@ public class ShowReportAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-	
+		
 		EventBean eb = (EventBean) form;
 		
 		HttpSession session = request.getSession();
+		
+		session.removeAttribute("Scores");
 		
 		Connection conn = (Connection) session.getAttribute("Con");
 		
@@ -91,20 +93,26 @@ public class ShowReportAction extends Action{
 	
 	public HashMap<Integer,Integer> getScores(Integer eventid, Connection conn) throws Exception
 	{
-		PreparedStatement pt1 = conn.prepareStatement("select UserId,Points from Points where EventId = ?");
-		pt1.setInt(1, eventid);
 		
-		ResultSet rs = pt1.executeQuery();
-		
-		HashMap<Integer,Integer> scores = new HashMap<Integer,Integer>();
-		
-		while(rs.next())
+		if(Utils.hasScore(eventid, conn))
 		{
-			scores.put(new Integer(rs.getInt("UserId")), new Integer(rs.getInt("Points")));
+		
+			PreparedStatement pt1 = conn.prepareStatement("select UserId,Points from Points where EventId = ?");
+			pt1.setInt(1, eventid);
+		
+			ResultSet rs = pt1.executeQuery();
+		
+			HashMap<Integer,Integer> scores = new HashMap<Integer,Integer>();
+		
+			while(rs.next())
+			{
+				scores.put(new Integer(rs.getInt("UserId")), new Integer(rs.getInt("Points")));
+			}
+
+			return scores;	
 		}
-		
-		//System.out.print(scores); 
-		
-		return scores;	
+
+		else
+			return null;
 	}
 }

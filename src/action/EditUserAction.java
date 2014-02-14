@@ -55,6 +55,20 @@ public class EditUserAction extends Action {
 		
 		if(way == 2)
 		{
+			changed_attribute = "Contact Number";
+			
+			char[] contact = ub.getContact_number().toCharArray();
+			
+			for(int i =0 ; i< contact.length; i++)
+			{
+				if(Character.isAlphabetic(contact[i]))
+				{
+					request.setAttribute("Changed Attribute", changed_attribute);
+					request.setAttribute("Profile edited", new Boolean(false));
+					return mapping.findForward("failure");	
+				}
+			}
+			
 			pt1 = conn.prepareStatement("update Users set Contact_Number = ? where UserId = ?");
 			pt1.setString(1, ub.getContact_number());
 			pt1.setInt(2, ub.getUserid());
@@ -62,7 +76,6 @@ public class EditUserAction extends Action {
 			if(pt1.executeUpdate() == 1)
 			{
 				forward_string = "success";
-				changed_attribute = "Contact Number";
 				if(!isAdmin)
 					me.setContact_Number(ub.getContact_number());
 			}

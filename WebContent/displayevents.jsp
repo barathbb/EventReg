@@ -32,12 +32,6 @@
 
 	<div class="eventdetails">
 
-	<%
-			
-	//out.write(" <h4 class=\"Edit_event_details\" align=\"right\" > Edit event </h4> ");
-		
-	%>
-	
 	<div class="details">
 
 	<h2> <a class="eventname" href="showevent.do?eventid=<%=e.getEventId() %>" > <% out.write(e.getName()); %>   </a> </h2> 
@@ -73,6 +67,7 @@
 
 	<button type="button" style="float:right;" id="<%=e.getEventId()%>" onclick="viewreport(this.id);"> View Report </button>
 	<br/> <br/>
+	
 	<a href="editevent.do?eventid=<%=e.getEventId()%>"><button type="button" style="float:right;"> Edit event </button></a>
 	
 	<%

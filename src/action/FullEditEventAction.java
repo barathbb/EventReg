@@ -86,7 +86,6 @@ public class FullEditEventAction extends Action {
 		pt1.setString(6, eb.getLocation());
 		pt1.setInt(7, eb.getRegistration_limit());
 		
-		
 		if(account_type.equals("A"))
 			pt1.setString(8, "A");
 		if(account_type.equals("U"))
