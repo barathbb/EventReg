@@ -69,9 +69,15 @@ function deleteevent(eventid)
 </head>
 <body>
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a> 
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a>  -->
 
 <h1>
 <%=event.getName() %>
@@ -87,7 +93,7 @@ A  <%=event.getEvent_Type(conn) %> <br/> <br/>
 conducted by &nbsp;
 
 
-<a href="showuser.do?userid=<%=event.getEvent_Owner() %>" >  <%=Name %> </a>
+<a href="showuser.do?userid=<%=event.getEvent_Owner() %>" class="username">  <%=Name %> </a>
 
 </td>
 
@@ -148,7 +154,7 @@ else
 <tr>
 <td>
 
-<b> Venue :</b> <br/> <br/> <%=event.getFullLocation(conn) %> <br/>
+<b> Venue :</b> &nbsp; <%=event.getFullLocation(conn) %> <br/>
 
 </td>
 <td>
@@ -218,7 +224,7 @@ if(otherevents.size() != 0)
 <tr>
 <td colspan="2">
 
-<table id="otherevents" cellspacing="2" border="1">
+<table id="otherevents">
 
 <%
 
@@ -227,13 +233,13 @@ for(Event e : otherevents)
 
 %>
 
-<tr>
-<td> 
+<tr class="eventrow">
+<td class="l"> 
 
-<a href="showevent.do?eventid=<%=e.getEventId()%>"> <%=e.getName() %> </a>
+<a href="showevent.do?eventid=<%=e.getEventId()%>" class="eventname"> <%=e.getName() %> </a>
 
 </td>
-<td>
+<td align="Center" class="r">
 
 <%
 

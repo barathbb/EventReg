@@ -74,18 +74,13 @@ function fetchmyevents()
 	ajax.send(null);
 }
 	
-	function remove(element)
-	{
-		element.innerHTML="Registered";		
-	}
-	
 	function viewreport(eventID)
 	{
 		var url = new String("report.do?eventid="+eventID);
 		window.location.href=url;
 	}
 	
-	function pagerefresh()
+	function pagerefresh() //If edited, also edit at regunreg.js 
 	{
 		var url = new String(document.URL);
 		var tab = url.substring(url.length - 1, url.length);
@@ -161,21 +156,21 @@ function fetchmyevents()
 	{
 		if(n == 1)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:underline; font-weight:bold;");			
-		document.getElementById("head2").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:none;");
+		document.getElementById("head1").setAttribute("style", "border-color:brown;");			
+		document.getElementById("head2").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head3").setAttribute("style", "border-color:#ccc;");
 		}
 		if(n == 2)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head2").setAttribute("style", "text-decoration:underline; font-weight:bold;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:none;");
+		document.getElementById("head1").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head2").setAttribute("style", "border-color:brown;");
+		document.getElementById("head3").setAttribute("style", "border-color:#ccc;");
 		}
 		if(n == 3)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head2").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:underline; font-weight:bold;");
+		document.getElementById("head1").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head2").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head3").setAttribute("style", "border-color:brown;");
 		}
 	}
 	

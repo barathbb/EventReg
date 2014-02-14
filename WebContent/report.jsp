@@ -38,7 +38,6 @@ var count = <%=allDetails!=null ? allDetails.size() : 0%>
 
 function removeentry(userid,eventid)
 {
-	//alert("Hi");
 	if(confirm("Are you sure you want to remove this entry :"))
 		{
 		
@@ -68,9 +67,15 @@ function assignscores(eventid)
 
 <body>
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <a href="showevent.do?eventid=<%=EventId %>" style="Text-decoration:none;"> <h1> <%=eventname %> </h1>  </a>
 

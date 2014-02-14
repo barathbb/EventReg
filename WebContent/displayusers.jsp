@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
-    pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" import="MyPackage.*" %>
+    pageEncoding="ISO-8859-1" import="java.util.*" import="MyPackage.User" %>
     
 	<%
 	HashMap<Integer,String> userdetails = (HashMap<Integer,String>)request.getAttribute("UserDetails");
@@ -15,7 +15,7 @@
 	
 	<div class="details">
 
-	<h2> <a class="eventname" href="showuser.do?userid=<%=i %>" > <% out.write(userdetails.get(i)); %>   </a> </h2> 
+	<h3> <a class="username" href="showuser.do?userid=<%=i %>" > <% out.write(userdetails.get(i)); %>   </a> </h3> 
 	 
 	</div>
 

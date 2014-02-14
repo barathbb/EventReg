@@ -23,7 +23,6 @@ function registerforevent(eventID,button)
 					button.innerHTML = "Unregister";
 					button.setAttribute("class","Unregister");
 					button.setAttribute("onclick","unregisterforevent("+eventID+",this)");
-					updateREL(eventID,"R");
 					}
 					
 				}
@@ -53,10 +52,45 @@ function registerforevent(eventID,button)
 					button.innerHTML = "Register";
 					button.setAttribute("class","Register");
 					button.setAttribute("onclick","registerforevent("+eventID+",this)");
-					updateREL(eventID,"UR");
+					pagerefresh();
 					}
 				}
 		}
 		a.send(null);
 			}
 	}
+	
+	function pagerefresh()	//For Users
+	{
+		var url = new String(document.URL);
+		var tab = url.substring(url.length - 1, url.length);
+		
+		if(url.lastIndexOf("#")<0)
+		{
+		tab = 1;
+		document.getElementById("head1").click();
+		return;
+		}
+		
+		if(tab ==1)
+			{
+			fetchallevents();
+			highlight(1);
+			hide23();
+			}
+			
+		if(tab == 2)
+			{
+			fetchregisteredevents();
+			highlight(2);
+			hide31();
+			}
+		if(tab == 3)
+			{
+			fetchmyevents();
+			highlight(3);
+			hide12();
+			}		
+	}
+	
+	

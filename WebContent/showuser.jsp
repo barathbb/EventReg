@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="MyPackage.*" import="java.sql.*" import="java.util.*" %>
-    
+    pageEncoding="ISO-8859-1" import="MyPackage.*" import="java.util.*" %>
     
 <%
     
@@ -19,11 +18,6 @@ if(request.getSession().getAttribute("User") == null)
     String name = (String)request.getAttribute("name");
     String emailid = (String)request.getAttribute("emailid");
     String contact_number = (String)request.getAttribute("contact_number");
-    
-    //PreparedStatement pt2 = conn.prepareStatement("select EventId,Name,Registration_Limit from Events where Event_Owner = ?");
-   // pt2.setInt(1, requestedUserId);
-    
-   // ResultSet r2 = pt2.executeQuery();  //For created events
     
     List<Integer> REL = (ArrayList<Integer>)session.getAttribute("RegisteredEventList");  //For sessioned user
 
@@ -49,8 +43,6 @@ if(request.getSession().getAttribute("User") == null)
 function viewreport(eventID)
 {
 	var url = new String("report.do?eventid="+eventID);
-	//var newtab = window.open(url);
-	//newtab.focus();	
 	window.location.href=url;
 }
 
@@ -77,11 +69,17 @@ function deleteaccount(eventid)
 
 <body>
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
- <a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!--  <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
-<table>
+<table id="maintable">
 
 <caption> <h2> <%=name %> </h2> </caption>
 
@@ -100,18 +98,17 @@ function deleteaccount(eventid)
 
 </tr>
 
-
 <tr>
-<td> E-Mail : 
+<td class="onevalue"> E-Mail : 
 </td>
-<td> <%=emailid%>
+<td class="onevalue"> <%=emailid%>
 </td>
 </tr>
 
 <tr>
-<td> Contact Number : 
+<td class="onevalue"> Contact Number : 
 </td>
-<td> <%=contact_number %>
+<td class="onevalue"> <%=contact_number %>
 </td>
 </tr>
 
@@ -150,7 +147,7 @@ if(registeredevents.size()!= 0)
 
 <tr>
 
-<td>  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;">  <%=e.getName() %></a>
+<td>  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;" class="eventname">  <%=e.getName() %></a>
 </td>
 <td align="center">   
 
@@ -206,7 +203,6 @@ if(registeredevents.size()!= 0)
 
 %>
 
-
 </td>
 
 </tr>
@@ -222,12 +218,11 @@ i++;
 </tr>
 
 
-
 <tr>
 
 <td colspan="2"> <!--  For created events -->
 
-<table border="1" id="participated">
+<table border="1" id="created">
 
 <% if(createdevents.size() != 0)
 {
@@ -251,7 +246,7 @@ if(createdevents.size()!= 0)
 
 <tr>
 
-<td>  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;">  <%=e.getName() %></a>
+<td>  <a href="showevent.do?eventid=<%=e.getEventId() %>" style="text-decoration:none;" class="eventname">  <%=e.getName() %></a>
 </td>
 <td align="center">   
 

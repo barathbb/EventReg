@@ -177,95 +177,67 @@ function fetchusers()
 	
 	function statuschange(eventid,status)
 	{
-		//alert(eventid + status);
+		var url = new String();
 		if(status=="A")
 		{
-			var dec = confirm("Are you sure you want to approve this event ? ");
-			if(dec==true)
-				{
-				var aj = new XMLHttpRequest();
-				aj.open("POST","changestatus.do?eventid="+eventid+"&status="+status);
-				aj.onreadystatechange = function()
-				{
-					if(aj.readyState==4)
-						{
-						document.getElementById(eventid).innerHTML = "";
-						document.getElementById(eventid).setAttribute("style", "height:0px;");
-						pagerefresh();
-						}
-				}
-				aj.send(null);
-				}
+			if(confirm("Are you sure you want to confirm this event ? "))
+				url = "changestatus.do?eventid="+eventid+"&status="+status;
 		}
 		
 		if(status=="R")
 		{
-			var dec = confirm("Are you sure you want to reject this event ? ");
-			if(dec==true)
-				{
-				var aj = new XMLHttpRequest();
-				aj.open("POST","changestatus.do?eventid="+eventid+"&status="+status);
-				aj.onreadystatechange = function()
-				{
-					if(aj.readyState==4)
-					{	
-						document.getElementById(eventid).innerHTML = "";
-						pagerefresh();
-					}
-				}
-				aj.send(null);
-				}
+			if(confirm("Are you sure you want to reject this event ? "))
+				url = "changestatus.do?eventid="+eventid+"&status="+status;
 		}
 		
 		if(status=="P")
 		{
-			var dec = confirm("Are you sure you want to put this event to Pending ? ");
-			if(dec==true)
-				{
-				var aj = new XMLHttpRequest();
-				aj.open("POST","changestatus.do?eventid="+eventid+"&status="+status);
-				aj.onreadystatechange = function()
-				{
-					if(aj.readyState==4)
-					{	
-						document.getElementById(eventid).innerHTML = "";
-						pagerefresh();
-					}
-				}
-				aj.send(null);
-				}
+			if(confirm("Are you sure you want to put this event to Pending ? "))
+				url = "changestatus.do?eventid="+eventid+"&status="+status;
 		}
+		
+		var aj = new XMLHttpRequest();
+		aj.open("POST",url,true);
+		aj.onreadystatechange = function()
+		{
+			if(aj.readyState==4)
+			{	
+				document.getElementById(eventid).innerHTML = "";
+				pagerefresh();
+			}
+		}
+		aj.send(null);
 	}
 	
 	function highlight(n)
 	{
 		if(n == 1)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:underline; font-weight:bold;");
-		document.getElementById("head2").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head4").setAttribute("style", "text-decoration:none;");
+		document.getElementById("head1").setAttribute("style", "border-color:brown;");
+		document.getElementById("head2").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head3").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head4").setAttribute("style", "border-color:#ccc;");
 		}
 		if(n == 2)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head2").setAttribute("style", "text-decoration:underline; font-weight:bold;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head4").setAttribute("style", "text-decoration:none;");
+		document.getElementById("head1").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head2").setAttribute("style", "border-color:brown;");
+		document.getElementById("head3").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head4").setAttribute("style", "border-color:#ccc;");
 		}
 		if(n == 3)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head2").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:underline; font-weight:bold;");
-		document.getElementById("head4").setAttribute("style", "text-decoration:none;");
+		document.getElementById("head1").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head2").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head3").setAttribute("style", "border-color:brown;");
+		document.getElementById("head4").setAttribute("style", "border-color:#ccc;");
 		}
 		if(n == 4)
 		{
-		document.getElementById("head1").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head2").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head3").setAttribute("style", "text-decoration:none;");
-		document.getElementById("head4").setAttribute("style", "text-decoration:underline; font-weight:bold;");
+		document.getElementById("head1").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head2").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head3").setAttribute("style", "border-color:#ccc;");
+		document.getElementById("head4").setAttribute("style", "border-color:brown;");
 		}
 	}
 	
@@ -273,7 +245,6 @@ function fetchusers()
 
 </head>
 <body onload="pagerefresh();">
-
 
 <header id="all">
 
@@ -286,10 +257,14 @@ function fetchusers()
 
 <div class="example">
 
-<p class="menu"> <a href="#tab1" id="head1" class="tab" onclick="fetchapprovedevents();highlight(1);"> Approved events</a> <a href="#tab2" id="head2" class="tab" onclick="fetchpendingevents();highlight(2);">Pending events</a> <a href="#tab3" id="head3" class="tab" onclick="fetchrejectedevents();highlight(3);">Rejected Events</a> 
-   <a href="#tab4" id="head4" class="tab" onclick="fetchusers();highlight(4);">All Users</a>  
+<div class="menu" style="margin-top:15px;"> 
+
+	<a href="#tab1" id="head1" class="tab" onclick="fetchapprovedevents();highlight(1);"> Approved events</a> 
+	<a href="#tab2" id="head2" class="tab" onclick="fetchpendingevents();highlight(2);">Pending events</a> 
+	<a href="#tab3" id="head3" class="tab" onclick="fetchrejectedevents();highlight(3);">Rejected Events</a> 
+	<a href="#tab4" id="head4" class="tab" onclick="fetchusers();highlight(4);">All Users</a>  
    
-   </p>
+  </div>
 
     <div class="items">
     

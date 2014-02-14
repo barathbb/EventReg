@@ -234,9 +234,15 @@ function validate()
 
 <body onload="setYears();">
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <h1>
 Create A New Event

@@ -1,13 +1,14 @@
 @CHARSET "UTF-8";
 
-body
+div.items p:not(:target)
 {
-	
+	display: none;
 }
 
-
-div.items p:not(:target) {display: none}
-div.items p:target {display: block}
+div.items p:target 
+{
+	display: block;
+}
 
 a.tab ,a:hover.tab ,a:active.tab
 {
@@ -15,10 +16,7 @@ a.tab ,a:hover.tab ,a:active.tab
  height:50px;
  text-decoration:none;
  border-style:solid;
- border-top-color:blue;
- border-left-color:blue;
- border-right-color:blue;
- border-bottom-color:white;
+ border-color:brown;
  border-width:medium;
  padding:10px;
 }
@@ -39,14 +37,39 @@ a
 	color:green;
 }
 
+.username
+{
+	color:black;
+}
+
+.username:hover
+{
+	color:#900;
+}
+
 .oneevent
 {
 	border-weight:lighter;
-	padding-top:2.5px;
-	padding-bottom:2.5px;	
+	padding-top:2px;
+	padding-bottom:3px;	
+	padding-left:5px;
 	height:120px;	
-	border-bottom-width:1px; 
- 	border-bottom-style:solid; 
+	border-width:1px;
+ 	border-style:solid;
+ 	border-color:#ccc;
+ 	border-radius:3px;
+ 	margin-bottom:2px;
+ 	margin-top:1px;
+}
+
+.oneevent:hover
+{
+	background-color:#eee;
+}
+
+.oneevent:hover .eventcontrols
+{
+	display:block;
 }
 
 .eventdetails
@@ -55,8 +78,6 @@ a
 	float:left;
 	height:auto;
 	margin:0 auto;
-/* 	border-bottom-width:1px; */
-/* 	border-bottom-style:solid; */
 }
 
 .eventcontrols
@@ -67,9 +88,10 @@ a
 	padding-top:20px;
 	height:auto;
 	padding-right:10px;
-/* 	border-bottom-width:1px; */
-/* 	border-bottom-style:solid; */
+	display:none;
 }
+
+
 
 .dates
 {
@@ -82,12 +104,7 @@ a
 	float:left;
 }
 
-.dates
-{
-	float:right;
-}
-
-.Register, .reged_button
+.Register
 {	
 	padding-right:10px;
 	float:right;
@@ -99,23 +116,11 @@ a
 	background-color:red;
 }
 
-.reg_button
-{
-	border-width:1px;	
-	background-color:green;
-}
-
-.reged_buttom
-{
-	border-width:3px;
-	background-color:red;
-}
-
 .statuslist
 {
 	margin-left:60px;
 	margin-top:15px;
 	padding-top:2px;
 	padding-bottom:3px;
-	font-size:15px;
+	font-size:10px;
 }

@@ -134,7 +134,6 @@ function deleteevent(eventid)
 		}
 }
 
-
 function checkDateOrder()
 {
 	var smonth = document.getElementById("Start_Month").value;
@@ -163,10 +162,7 @@ function checkDateOrder()
 	var endDate = new Date(eyear,emonth,eday,ehour,emin,0,0);
 	
 	if(startDate.getTime() > endDate.getTime())
-		{
-		//alert("Start date is after End date");
 		return false;
-		}
 	else
 		return true;
 
@@ -241,9 +237,15 @@ function validate()
 
 <body>
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <h1>
 Edit Event - <%=event.getName() %>
@@ -297,19 +299,11 @@ Description*:
 </td>
 </tr>
 
-
-<% 
-//String temp = Utils.getStatus(event.getEventId(), conn);
-
-//if(temp.equals("R")) { %>
-
-
 <tr>
 <td>
 Start date*:
 </td>
 <td>
-
 
 <input type="number" size="5" id="Start_Month" name="start_month" placeholder="MM" width="20" onchange="checkStartDate();" value="<%=startDateArr[1] %>" autocomplete="off" /> 
 
@@ -332,8 +326,6 @@ Start time*:
 
 
 <input type="number" size="5" placeholder="mm" name="start_minute" id="Start_Minute"  value="<%=startTimeArr[1] %>"  autocomplete="off" />
-
-
 
 <select name="start_AMPM" id="Start_AMPM">
 
@@ -403,7 +395,6 @@ End time*:
 </tr>
 
 
-
 <tr>
 <td>
 Event location*:
@@ -423,7 +414,6 @@ Event location*:
 </td>
 </tr>
 
-<% //} %>
 
 <tr>
 
@@ -434,8 +424,7 @@ Event location*:
 <% 
 
  if(event.getRegistration_Limit() == -1)
- {
-	 
+ { 
 
 %>
 

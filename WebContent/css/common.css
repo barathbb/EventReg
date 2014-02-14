@@ -23,6 +23,7 @@ textarea
 	background-color:ghostwhite;
 	align:center;
 	margin: 0 auto;
+	border: 1px solid #bbb;
 }
 
 button
@@ -31,9 +32,14 @@ button
 	height:auto;
 	padding:2px;
 	border-color:black;
-	background-color:#eee;
+	background-color:#ddd;
 	font-family:"Segoe UI";
 	font-size:15px;
 	text-color:black;
 	border-radius:5px;
+}
+
+button:hover
+{
+	background-color:#aaa;
 }

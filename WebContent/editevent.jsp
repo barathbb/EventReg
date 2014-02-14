@@ -152,9 +152,15 @@ function validate()
 
 <body>
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <h1>
 Edit Event - <%=event.getName() %>

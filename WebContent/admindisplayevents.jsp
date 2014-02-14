@@ -36,7 +36,7 @@
 
 	From : <%=DateManip.toDisplayDate(e.getStart_Date()) %> 
 
-	<br/> 
+	<br/> <br/>
 	To : &nbsp; &nbsp; <%=DateManip.toDisplayDate(e.getEnd_Date()) %>  <br/>
 
 	</div>
@@ -58,9 +58,6 @@
 		 
 		 <% 
 	 }
-	 %>
-	 
-	 <% 
 	
 	 if(p == 6)
 	 { 
@@ -75,9 +72,7 @@
 		 
 		 <% 
 	 }
-	 %>
 	 
-	 <% 
 	 if(p == 4)
 
 	 {

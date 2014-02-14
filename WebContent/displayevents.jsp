@@ -28,7 +28,7 @@
 		
 	%>
 
-	<div class="oneevent" >
+	<div class="oneevent" onhover="showeventcontrols(this);" >
 
 	<div class="eventdetails">
 
@@ -44,7 +44,7 @@
 
 	From : <%=DateManip.toDisplayDate(e.getStart_Date()) %> 
 
-	<br/> 
+	<br/> <br/> 
 	To : &nbsp; &nbsp; <%=DateManip.toDisplayDate(e.getEnd_Date()) %>  <br/>
 
 	</div>

@@ -11,15 +11,18 @@
 </head>
 <body>
 
+<header id="all">
 
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
 
 
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <br/> <br/>
-
 
 <p>Event Registration is a web application which brings together event coordinators and participants.</p>
 

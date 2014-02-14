@@ -98,18 +98,7 @@ function deleteaccount(eventid)
 {
 	if(confirm("Are you sure you want to delete this account? "))
 		{
-		//var ajax = new XMLHttpRequest();
 		window.location.href="deleteaccount.do?userid="+eventid;
-		//ajax.open("POST",url,true);		
-		//ajax.onreadystatechange = function()
-		//{
-		//	if(ajax.readyState == 4)
-		//		{
-		//		alert("The account has been deleted");
-		//		pagerefresh();
-		//		}
-		//}
-		//ajax.send(null);
 		}
 }
 
@@ -118,9 +107,15 @@ function deleteaccount(eventid)
 </head>
 <body>
 
+<header id="all">
+
+<jsp:include page="header.jsp"></jsp:include>
+
+</header>
+
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+<!-- <a href="home.do#tab1"><button type="button"> Go Home!</button></a> -->
 
 <h1>
 Edit Profile
