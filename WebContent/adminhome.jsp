@@ -175,7 +175,6 @@ function fetchusers()
 			}
 	}
 	
-	
 	function statuschange(eventid,status)
 	{
 		//alert(eventid + status);

@@ -3,10 +3,13 @@
 
 
 
+<a href="home.do#tab1">
 <img src="img/logo.png" height="50" width="200" style="margin-top:10px;margin-left:10px;" align="left" />
+</a>
+
 <br/> <br/> <br/>
 
-<a href="about.jsp" style="text-decoration:none;">
+<a href="home.do#tab1" style="text-decoration:none;">
 <h1 align="center" >
 Event Registration
 </h1>
@@ -15,12 +18,6 @@ Event Registration
 <br/>
 
 <a href="signout.do"> <b> <span style="float:right; margin-left:10px;"> Sign Out!  </span> </b> </a>
-
-<!-- 
-
-<a href="showuser.do?userid=<%=((User)request.getSession().getAttribute("User")).getUserId() %>" > <button type="button" style="float:right;">View my profile </button> </a>
-
- -->
 
 <span style="float:right;"> <b> <a href="about.jsp" style="text-decoration:none;"> About Us &nbsp; | &nbsp; </a> </b> </span>
 

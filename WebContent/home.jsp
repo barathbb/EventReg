@@ -156,9 +156,7 @@ function fetchmyevents()
 			ajax.send(null);
 			}
 	}
-	
-	
-	
+
 	function highlight(n)
 	{
 		if(n == 1)
@@ -202,15 +200,13 @@ function fetchmyevents()
 
     <div class="items">
     
-     <p id="default"><!-- by default, show no text --></p>
+     <p id="default"> <!-- by default, show no text --> </p>
      
      <p id="tab1" autofocus="on">  <!-- To view all events -->
      
      </p>
      
      <p id="tab2">
-     
-     <p id="tab21"> </p>
 
      </p>
      

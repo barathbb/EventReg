@@ -79,7 +79,7 @@ function deleteaccount(eventid)
 
 <div id="all">
 
-<a href="home.do#tab1"><button type="button"> Go Home!</button></a>
+ <a href="home.do#tab1"><button type="button"> Go Home!</button></a>
 
 <table>
 
