@@ -23,7 +23,7 @@ out.write("Successfully signed in"); %>
 
 <input type="hidden" name="password" value="<%=request.getAttribute("password") %>" />
 
-<button type="submit" align="Center"> Click to go to home page! </button>
+<button type="submit" align="Center" style="margin:0 auto;"> Click to go to home page! </button>
 
 </form>
 
@@ -42,14 +42,14 @@ if(request.getAttribute("Event Created") != null && (Boolean)request.getAttribut
 
 %>
 
-<a href="home.do#tab3"><button type="submit" align="center"> Go home!  </button></a>
+<a href="home.do#tab3"><button type="submit" align="center" style="margin:0 auto;"> Go home!  </button></a>
 
 <% } %>
 
 
 <%
 
-//For new event creation
+//For full event edittion
 
 if(request.getAttribute("FullEdit") != null && (Boolean)request.getAttribute("FullEdit") == true) 
 
@@ -59,7 +59,7 @@ if(request.getAttribute("FullEdit") != null && (Boolean)request.getAttribute("Fu
 
 %>
 
-<a href="home.do#tab3"><button type="submit" align="center"> Go home!  </button></a>
+<a href="home.do#tab3"><button type="submit" align="center" style="margin:0 auto;"> Go home!  </button></a>
 
 <% } %>
 

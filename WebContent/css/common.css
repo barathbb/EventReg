@@ -10,6 +10,12 @@ body
 	font-family:"Segoe UI";
 }
 
+input:onclick
+{
+	border: 2px solid blue;
+	border-radius:2px;
+}
+
 textarea
 {
 	 resize:none;

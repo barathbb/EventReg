@@ -9,7 +9,7 @@
 <title>Create a new event</title>
 
 <link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="stylesheet" type="text/css" href="css/newevent.css" />
+<link rel="stylesheet" type="text/css" href="css/requestevent.css" />
 
 <script type="Text/javascript">
 
@@ -19,20 +19,20 @@ function checkStartDate()
 	var day = document.getElementById("Start_Day").value;
 	var year = document.getElementById("Start_Year").value;
 	
-if (month == 4 || month == 6 || month == 9 || month == 11 && day <= 30) {
-      // alert("Date is valid")
+   if (month == 4 || month == 6 || month == 9 || month == 11 && day <= 30) {
+     
    }
    else if (year/4!=0 && month == 2 && day <= 28 ) {
-      // alert("Date is valid")
+      
    }
-   else if(year/4==0 && month == 2 && day <= 29 ){
-	   //alert("Date is valid");
+   else if(year/4==0 && month == 2 && day <= 29 ) {
+	   
    }
    else if (year/400==0 && month == 2 && day <= 29 ) {
-       //alert("Date is valid")
+       
    }
    else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 && day <= 31) {
-      // alert("Date is valid")
+     
    }
    else {
        alert("Start date is invalid");
@@ -46,22 +46,21 @@ function checkEndDate()
 	var month = document.getElementById("End_Month").value;
 	var day = document.getElementById("End_Day").value;
 	var year = document.getElementById("End_Year").value;
-	//alert(month+" "+day+" "+year);
 	
-if (month == 4 || month == 6 || month == 9 || month == 11 && day <= 30) {
-      // alert("Date is valid")
+   if (month == 4 || month == 6 || month == 9 || month == 11 && day <= 30) {
+      
    }
    else if (year/4!=0 && month == 2 && day <= 28 ) {
-      // alert("Date is valid")
+     
    }
-   else if(year/4==0 && month == 2 && day <= 29 ){
-	   //alert("Date is valid");
+   else if(year/4==0 && month == 2 && day <= 29 ) {
+	   
    }
    else if (year/400==0 && month == 2 && day <= 29 ) {
-       //alert("Date is valid")
+       
    }
    else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 && day <= 31) {
-      // alert("Date is valid")
+      
    }
    else {
        alert("End date is invalid");
@@ -246,7 +245,7 @@ Create A New Event
 <form onsubmit = "return validate();" action="finaliseeventrequest.do" method="post" id="Form">
 <table border="0" style="margin:0 auto;">
 
-<tr>
+<tr class="row">
 <td>
 Event name*:
 </td>
@@ -255,7 +254,7 @@ Event name*:
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td>
 Description*:
 </td>
@@ -264,7 +263,7 @@ Description*:
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td> Event Type* : 
 </td>
 <td>
@@ -287,12 +286,11 @@ Description*:
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td>
 Start date*:
 </td>
 <td>
-
 
 <select id="Start_Month" name="start_month" width="20" onchange="checkStartDate();"> 
 
@@ -346,14 +344,12 @@ Start date*:
 
 </select>
 
-
 <input type="text" name="start_year" id="Start_Year" placeholder="yyyy" size="5" onchange="checkStartDate();"/> 
-
 
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td>
 Start time*:
 </td>
@@ -389,13 +385,12 @@ Start time*:
 <option value="AM"> AM </option>
 <option value="PM"> PM </option>
 
-
 </select>
 
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td>
 End date*:
 </td>
@@ -453,18 +448,12 @@ End date*:
 
 </select>
 
-<!-- 
-<select id="End_Year" name="End_Year width="15">
-
-</select>  -->
-
 <input type="number" name="end_year" id="End_Year" placeholder="yyyy" size="5"  onchange="checkEndDate();" />
-
 
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td>
 End time*:
 </td>
@@ -507,7 +496,7 @@ End time*:
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td>
 Event location*:
 </td>
@@ -527,7 +516,7 @@ Event location*:
 </td>
 </tr>
 
-<tr>
+<tr class="row">
 <td> Do you want limited registration* ? 
 </td>
 <td>
@@ -539,7 +528,7 @@ Event location*:
 </td>
 </tr>
 
-<tr id="reg_limit" style="display:none;">
+<tr id="reg_limit" style="display:none;" class="row">
 <td> Enter the registration limit : 
 </td>
 <td> <input type="text" name="registration_limit" id="Registration_Limit" cols="30" />
@@ -549,7 +538,7 @@ Event location*:
 <tr>
 <td colspan="2"  align="center">
 
-<button type="submit"> Request for time slot! </button> 
+<button type="submit"> Request event! </button> 
 
 </td>
 </tr>

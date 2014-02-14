@@ -25,6 +25,7 @@ td
 
 #maintable
 {
+	border-collapse:collapse;
 	border: 2px solid #eee;
 	border-radius:4px;
 	width:auto;
@@ -77,6 +78,3 @@ td
 {
 	display:block;
 }
-
-
-
